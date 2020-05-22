@@ -35,8 +35,8 @@ const useStyles = makeStyles({
           <SideBarComponentFin links={'nothing'} name={props.user.username} setUser={props.setUser}/>
           </Grid>
           <Grid item xs={10}>
-           <Redirect to="/allReimb" />
-           <Route path='/allReimb' render= {() => <AllReimbComponentFin user={props.user} setReimb_id={setReimb_id}/>}  />
+           <Redirect to="/allReimbFin" />
+           <Route path='/allReimbFin' render= {() => <AllReimbComponentFin user={props.user} setReimb_id={setReimb_id}/>}  />
            <Route path='/pendingReimb' render= {() => <PendingReimbComponent user={props.user}/> }  />
            <Route path='/historyReimb' render= {() => <HistoryReimbComponentFin user={props.user}/> }  />
            <Route path='/aprRejReimb' render= {() => <AprRejReimbComponent user={props.user} reimb_id={reimb_id}/> }  />

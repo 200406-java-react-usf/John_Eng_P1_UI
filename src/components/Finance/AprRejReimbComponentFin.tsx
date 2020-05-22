@@ -50,7 +50,7 @@ const AprRejReimbComponent = (props: IAprRejProps) => {
 
     let statusUpdate1 = async() => {
         await statusUpdate(props.reimb_id, new Date(), props.user.username, status)
-        history.push('/allReimb')
+        history.push('/allReimbFin')
     }
 
     const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
