@@ -45,11 +45,11 @@ const SideBarComponentEmp = (props: ISideBarProps) => {
         <div className={classes.sideBar}>
             <Typography> Welcome, {props.name}</Typography><br/><br/>
             <ul style={{listStyleType: "none", display: "grid", padding: "10px"}}>
-            <li><NavLink to='/allReimb' activeStyle={{color:'#03071e'}} className={classes.link}>All Reimbursement</NavLink></li>
-            <li><NavLink to='/submitReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Submit Reimbursment</NavLink></li>
-            <li><NavLink to='/historyReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Prior Reimbursements</NavLink></li>
-            <li><NavLink to='/detailReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Reimbursements Detail</NavLink></li>
-            <li><NavLink to='/updateReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Reimbursements Update</NavLink></li>
+            <li><NavLink to='/allReimb' activeStyle={{color:'#03071e'}} className={classes.link}>All Reimb</NavLink></li>
+            <li><NavLink to='/submitReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Submit Reimb</NavLink></li>
+            <li><NavLink to='/historyReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Prior Reimb</NavLink></li>
+            <li><NavLink to='/detailReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Reimb Detail</NavLink></li>
+            <li><NavLink to='/updateReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Reimb Update</NavLink></li>
             <li><NavLink to='/login' activeStyle={{color:'#03071e'}} className={classes.link} onClick={logout}>Logout</NavLink></li>
             </ul>
         </div>

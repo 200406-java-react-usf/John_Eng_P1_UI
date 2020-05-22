@@ -84,7 +84,7 @@ const DetailReimbComponent = (props: IDetailProps) => {
     return ( 
         <div className={classes.loginContainer}>
             <form className={classes.loginForm}>
-    <Typography align="center" variant="h4"> EMPLOYEE ID: {props.reimb_id}</Typography>
+    <Typography align="center" variant="h4"> REIMB ID: {props.reimb_id}</Typography>
 
                 <FormControl margin="normal" fullWidth >
                     <InputLabel htmlFor="AMOUNT" >AMOUNT</InputLabel>
