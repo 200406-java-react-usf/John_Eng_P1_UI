@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface IHeaderProps{
     title: string;
+    name: string;
 }
 
 const useStyles = makeStyles({
@@ -29,7 +30,7 @@ const HeaderComponent = (props: IHeaderProps) => {
         {props.title}
         </Typography>
         </div>
-        <div style={{backgroundColor:"#370617"}}><br/></div>
+        <div style={{backgroundColor:"#370617"}}>Welcome, {props.name}<br/></div>
         <div ></div>
         </>
     )

@@ -18,7 +18,7 @@ function App() {
       {
        !user ? <LoginComponents authUser={user} setUser={setUser} />:
         <>
-          <HeaderComponent title={user?.role}/>
+          <HeaderComponent title={user?.role} name={user?.username}/>
           {user.role == 'ADMIN' ? <AdminHomeComponent user={user} setUser={setUser}/>:
          user.role == 'EMPLOYEE' ? <EmployeeHomeComponent user={user} setUser={setUser}/>:
          user.role == 'FINANCE MANAGER' ? <FinanceHomeComponent user={user} setUser={setUser}/>:         
