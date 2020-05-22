@@ -41,7 +41,7 @@ const SideBarComponentAdmin = (props: ISideBarProps) => {
 
     return(
         <div className={classes.sideBar}>
-            <Typography> Welcome, {props.name}</Typography><br/><br/>
+            <br/><br/>
                 <ul style={{listStyleType: "none", display: "grid", padding: "10px"}}>
                     <li><NavLink to='/allUser' activeStyle={{color:'#03071e'}} className={classes.link}>HOME</NavLink></li>
                     <li><NavLink to='/addUser' activeStyle={{color:'#03071e'}} className={classes.link}>ADD USER</NavLink></li>

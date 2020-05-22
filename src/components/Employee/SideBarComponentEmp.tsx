@@ -43,7 +43,7 @@ const SideBarComponentEmp = (props: ISideBarProps) => {
 
     return(
         <div className={classes.sideBar}>
-            <Typography> Welcome, {props.name}</Typography><br/><br/>
+            <br/><br/>
             <ul style={{listStyleType: "none", display: "grid", padding: "10px"}}>
             <li><NavLink to='/allReimb' activeStyle={{color:'#03071e'}} className={classes.link}>All Reimb</NavLink></li>
             <li><NavLink to='/submitReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Submit Reimb</NavLink></li>

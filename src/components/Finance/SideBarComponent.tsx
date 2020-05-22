@@ -43,7 +43,7 @@ const SideBarComponentFin = (props: ISideBarProps) => {
 
     return(
         <div className={classes.sideBar}>
-            <Typography> Welcome, {props.name}</Typography><br/><br/>
+            <br/><br/>
             <ul style={{listStyleType: "none", display: "grid", padding: "10px"}}>
             <li><NavLink to='/allReimb' activeStyle={{color:'#03071e'}} className={classes.link}>All Reimbursement</NavLink></li>
             <li><NavLink to='/pendingReimb' activeStyle={{color:'#03071e'}} className={classes.link}>Pending Reimbursement</NavLink></li>
