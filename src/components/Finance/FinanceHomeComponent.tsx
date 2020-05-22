@@ -24,6 +24,9 @@ const useStyles = makeStyles({
   const FinanceHomeComponent = (props: IFinanceProps)=> {
     const classes = useStyles();
 
+     //@ts-ignore
+     const [reimb_id, setReimb_id] = useState(null as number);
+
     return(
         <>
         <Router>
@@ -33,7 +36,7 @@ const useStyles = makeStyles({
           </Grid>
           <Grid item xs={10}>
            <Redirect to="/allReimb" />
-           <Route path='/allReimb' render= {() => <AllReimbComponentFin user={props.user}/> }  />
+           <Route path='/allReimb' render= {() => <AllReimbComponentFin user={props.user} setReimb_id={props.setUser}/>}  />
            <Route path='/pendingReimb' render= {() => <PendingReimbComponent user={props.user}/> }  />
            <Route path='/historyReimb' render= {() => <HistoryReimbComponentFin user={props.user}/> }  />
            <Route path='/aprRejReimb' render= {() => <AprRejReimbComponent user={props.user}/> }  />

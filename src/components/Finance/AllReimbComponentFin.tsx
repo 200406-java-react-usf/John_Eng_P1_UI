@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ERSreimb } from "../../models/ers-reimb";
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -9,12 +9,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Button } from '@material-ui/core';
-import { BrowserRouter as Router, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, BrowserRouter, Redirect, useHistory } from 'react-router-dom';
 import { User } from '../../dtos/user';
 import { getAllReimb } from '../../remote/reimb-data';
 
 interface IAllReimbProps{
   user: User;
+  setReimb_id: (x:any)=> void;
 }
 
 const useStyles = makeStyles({
@@ -28,21 +29,26 @@ const useStyles = makeStyles({
     },
   });
 
-  let userData1: ERSreimb[] = [];
 
 const AllReimbComponentFin = (props: IAllReimbProps)=> {
     const classes = useStyles();
 
-    const userData = async()=>{
-        console.log('im in userData function')
-      userData1 = await getAllReimb();   
+  //@ts-ignore
+  const [reimbData1, setReimbData1] = useState([] as ERSreimb[])
+
+    const reimbData = async()=>{
+      return await getAllReimb();   
     };
 
-    useEffect(()=>{userData();});
+    useEffect(()=>{
+      reimbData().then((result)=>setReimbData1(result))
+    },[]);
 
-    const redirectDetail = ()=>{
-      console.log('im in redirect detail function');
-      return <Redirect to="/detailReimb" />
+    let history = useHistory();
+
+    const redirectDetail =  async (e:any)=>{
+      await props.setReimb_id(e.currentTarget.value)
+      history.push('/aprRejReimb')
     }
 
     let table = (
@@ -59,7 +65,7 @@ const AllReimbComponentFin = (props: IAllReimbProps)=> {
         </TableRow>
       </TableHead>
       <TableBody>
-        {userData1.map((row) => (
+        {reimbData1.map((row) => (
         <TableRow key={row.REIMB_ID}>
           <TableCell component="th" scope="row">
             {row.REIMB_ID}
@@ -72,6 +78,7 @@ const AllReimbComponentFin = (props: IAllReimbProps)=> {
           <Button className={classes.button}
                     onClick={redirectDetail}
                     variant = "contained"
+                    value = {row.REIMB_ID}
                     size = "medium">Detail
                 </Button> 
           </TableCell>
