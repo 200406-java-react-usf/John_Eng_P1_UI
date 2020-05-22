@@ -2,6 +2,8 @@ import React from 'react';
 import{ Typography, FormControl, InputLabel, Input, Button, makeStyles, createStyles, Theme, Select, MenuItem } from '@material-ui/core';
 import { User } from '../../dtos/user';
 import { getReimbById } from '../../remote/reimbId-data';
+import { statusUpdate } from '../../remote/status-update';
+import { useHistory } from 'react-router-dom';
 
 
 interface IAprRejProps{
@@ -42,11 +44,14 @@ const AprRejReimbComponent = (props: IAprRejProps) => {
     
     const classes = useStyles();
     
-    let detailReimb1 = async() => {
-        let detailReimb1 = await getReimbById(2)
-    }
-
     const [status, setStatus] = React.useState('');
+
+    let history = useHistory();
+
+    let statusUpdate1 = async() => {
+        await statusUpdate(props.reimb_id, new Date(), props.user.username, status)
+        history.push('/allReimb')
+    }
 
     const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setStatus(event.target.value as string);
@@ -61,7 +66,6 @@ const AprRejReimbComponent = (props: IAprRejProps) => {
     <Typography align="left" variant="h6"> AMOUNT: </Typography>
     <Typography align="left" variant="h6"> TYPE: </Typography>
     <Typography align="left" variant="h6"> DESCRIPTION: </Typography>
-    <Typography align="left" variant="h6"> APPROVE/DENY: </Typography>
     <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-label">Approve/Deny</InputLabel>
         <Select
@@ -70,13 +74,13 @@ const AprRejReimbComponent = (props: IAprRejProps) => {
           value={status}
           onChange={handleChange}
         >
-          <MenuItem value={'approve'}>APPROVE</MenuItem>
-          <MenuItem value={'deny'}>DENY</MenuItem>
+          <MenuItem value={'APROVED'}>APPROVE</MenuItem>
+          <MenuItem value={'DENIED'}>DENY</MenuItem>
         </Select>
       </FormControl>
                 <br/><br/>
                 <Button className={classes.button}
-                    onClick={detailReimb1}
+                    onClick={statusUpdate1}
                     variant = "contained"
                     size = "medium">Submit
                 </Button>
