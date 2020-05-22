@@ -62,7 +62,7 @@ const UpdateUserComponent = () => {
         let result = await updateUser(+ERS_USER_ID, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL, ROLE_NAME)
         history.push('/allUser')
     }
-    }
+    
 
     return (
         <div className={classes.loginContainer}>

@@ -61,11 +61,12 @@ const AddNewUserComponent = () => {
         }
     }  
     let history = useHistory();
+    
     let addUser = async() => {
         let newUser = await addNewUser(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL, ROLE_NAME)
         history.push('/allUser')
     }
-    }
+
 
     return (
         <div className={classes.loginContainer}>
