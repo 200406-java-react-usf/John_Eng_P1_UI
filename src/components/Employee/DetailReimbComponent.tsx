@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import{ Typography, FormControl, InputLabel, Input, Button, makeStyles } from '@material-ui/core';
-import { Redirect, useLocation } from 'react-router';
+import { Redirect, useLocation, useHistory } from 'react-router';
 import { getReimbById } from '../../remote/reimbId-data';
 import { ERSreimb } from '../../models/ers-reimb';
 import { deleteReimb } from '../../remote/delete-reimb';
@@ -71,9 +71,11 @@ const DetailReimbComponent = (props: IDetailProps) => {
 
         }
     }   
-    
+    let history = useHistory();
     let deleteReimb1 = async() => {
         await deleteReimb(props.reimb_id)
+        history.push('/allReimb')
+
     }
     
     const location = useLocation();

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import{ Typography, FormControl, InputLabel, Input, Button, makeStyles } from '@material-ui/core';
 import { updateUser } from '../../remote/update-user';
+import { useHistory } from 'react-router-dom';
+
 
 const useStyles = makeStyles({
     loginContainer:{
@@ -55,9 +57,11 @@ const UpdateUserComponent = () => {
 
         }
     }   
+    let history = useHistory();
     let updateUser1 = async() => {
         let result = await updateUser(+ERS_USER_ID, USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL, ROLE_NAME)
-
+        history.push('/allUser')
+    }
     }
 
     return (

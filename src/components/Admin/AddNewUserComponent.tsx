@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import{ Typography, FormControl, InputLabel, Input, Button, makeStyles } from '@material-ui/core';
 import { addNewUser } from '../../remote/add-user';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     loginContainer:{
@@ -58,9 +59,12 @@ const AddNewUserComponent = () => {
                 console.warn(`Improper binding detacted on element with id: ${e.currentTarget.id}`);
 
         }
-    }   
+    }  
+    let history = useHistory();
     let addUser = async() => {
         let newUser = await addNewUser(USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, EMAIL, ROLE_NAME)
+        history.push('/allUser')
+    }
     }
 
     return (

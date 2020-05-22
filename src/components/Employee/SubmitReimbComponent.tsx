@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import{ Typography, FormControl, InputLabel, Input, Button, makeStyles } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { ERSuser } from '../../models/ers-user';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import { submitReimb } from '../../remote/submit-reimb';
 import { User } from '../../dtos/user';
 
@@ -56,9 +56,11 @@ const SubmitReimbComponent = (props: ISubmitProps) => {
 
         }
     }   
+    let history = useHistory();
     let submitReimb1 = async() => {
         let submitReimb1 = await submitReimb(AMOUNT, new Date(), DESCRIPTION, "none", props.user.username, 'PENDING', TYPE)
         // props.setUserName(auth);
+        history.push('/allReimb')
     }
 
     return (
