@@ -5,7 +5,8 @@ import { getReimbById } from '../../remote/reimbId-data';
 
 
 interface IAprRejProps{
-    user: User
+    user: User;
+    reimb_id: number;
 }
 
 const useStyles = makeStyles((theme: Theme)=>
@@ -54,13 +55,13 @@ const AprRejReimbComponent = (props: IAprRejProps) => {
     return (
         <div className={classes.loginContainer}>
             <form className={classes.loginForm}>
-    <Typography align="center" variant="h4"> EMPLOYEE ID: {}</Typography>
+    <Typography align="center" variant="h4"> EMPLOYEE ID: {props.reimb_id}</Typography>
         <br></br>
-    <Typography align="left" variant="h6"> EMPLOYEE NAME: {}</Typography>
-    <Typography align="left" variant="h6"> AMOUNT: {}</Typography>
-    <Typography align="left" variant="h6"> TYPE: {}</Typography>
-    <Typography align="left" variant="h6"> DESCRIPTION: {}</Typography>
-    <Typography align="left" variant="h6"> APPROVE/DENY: {}</Typography>
+    <Typography align="left" variant="h6"> EMPLOYEE NAME: </Typography>
+    <Typography align="left" variant="h6"> AMOUNT: </Typography>
+    <Typography align="left" variant="h6"> TYPE: </Typography>
+    <Typography align="left" variant="h6"> DESCRIPTION: </Typography>
+    <Typography align="left" variant="h6"> APPROVE/DENY: </Typography>
     <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-label">Approve/Deny</InputLabel>
         <Select
